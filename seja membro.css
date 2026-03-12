@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+@keyframes toActive {
+  from{
+      top: 100%;
+      opacity: 0;
+  }
+}
+
+.item.active .title{
+  animation: toActive 0.5s ease-in-out 1;
+}
+
+
+@keyframes float {
+  0% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+      transform: translate(-50%, -50%) translateY(-20px); 
+  }
+  100% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+
+:root {
+    --marrom: #3D2314;
+    --dourado: #D4AF37;
+    --fundo-escuro: #2e2e2e;
+    --claro: #eee;
+}
+
+body {
+    background: var(--fundo-escuro);
+    color: var(--claro);
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 33px 9%;
+    transition: all .50s ease;
+    background: transparent;
+    color: #eee;
+}
+
+#logo{
+    width: 90%;
+}
+
+header.sticky{
+    padding: 10px 10%;
+    background: rgb(0, 0, 0)
+}
+
+.navbar{
+    display: flex;
+    list-style: none;
+}
+
+.navbar a{
+    color: var(--other-color);
+    margin-left: 60px;
+    font-size: var(--p-font);
+    font-weight: 550;
+    border-bottom: 2px solid transparent;
+    transition:all .5s ease;
+}
+
+.navbar a:hover{
+    border-bottom: 2px solid #D4AF37;
+    color: #D4AF37;
+}
+
+#menu-icon{
+    color: rgb(146, 25, 25);
+    font-size: 30px;
+    margin-left: 5px;
+    z-index: 10001;
+    cursor: pointer;
+    display: none;
+}
+
+#menu-icon {
+    display: none;
+    font-size: 30px;
+    color: var(--claro);
+}
+
+.membro-section {
+    padding-top: 150px;
+    text-align: center;
+    min-height: 100vh;
+    background-color: var(--fundo-escuro);
+}
+
+.section-title {
+    font-size: 45px;
+    color: var(--dourado);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 10%;
+}
+
+.membro-card {
+    background: var(--marrom);
+    color: var(--claro);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: 0.3s ease;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.membro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.membro-card h3 {
+    font-size: 24px;
+    color: var(--dourado);
+    margin-top: 15px;
+}
+
+.membro-card p {
+    padding: 15px;
+    font-size: 16px;
+}
+
+.btn-card {
+    background: var(--dourado);
+    border: none;
+    color: var(--marrom);
+    font-weight: 600;
+    padding: 12px;
+    margin: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-card:hover {
+    background: #c19e33;
+    transform: translateY(-3px);
+}
+
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: #202020;
+    border-top: .3rem solid #ffffffab;
+    font-size: 100%;
+    overflow-x: hidden;
+}
+
+.footer-text p{
+    font-size: 1.6rem;
+    color: #eee;
+    font-size: 100%;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: #ff9100;
+    border-radius: .8rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    transform: translatey(-8px);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: #f7f7ff;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background: #2e2e2e;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+    }
+}

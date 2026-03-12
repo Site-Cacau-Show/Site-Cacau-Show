@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login | Cacau Show</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="shortcut icon" href="icone.ico" type="image/x-icon">
+</head>
+<body>
+  <style> .fade-in { 
+    opacity: 0; transform: translateY(30px); 
+    animation: fadeInUp 1s forwards;
+     }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1; transform: translateY(0); 
+        }
+         }
+      .loading {
+         position: relative; 
+         pointer-events: none;
+         opacity: 0.7; 
+         }
+         
+         .loading::after {
+          content: '';
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          width: 16px;
+          height: 16px;
+          border: 2px solid white;
+          border-top-color: transparent;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          transform: translateY(-50%);
+         }
+         
+         @keyframes spin 
+         { to 
+         { transform: translateY(-50%) rotate(360deg);
+         } 
+         } 
+         
+         .success-message { display: none;
+          font-size: 1.2rem;
+           text-align: center;
+            color: #3a7f2d;
+            animation: fadeInSuccess 0.8s ease-out forwards;
+            }
+            
+            @keyframes fadeInSuccess {
+               0% {
+                 opacity: 0;
+                  transform: scale(0.9);
+                }
+                 100% { opacity: 1;
+                  transform: scale(1);
+                   }
+                    }
+    
+  </style>
+</head>
+ <body>
+   <div class="wrap fade-in"> 
+    <section class="promo">
+       <center><img src="logo_cacau_show.svg" width="300" height="150"></center><br>
+        <h1>Bem-vindo de volta</h1> <p>Bem-vindo de volta ao mundo do chocolate. Faça seu login e continue adoçando seus momentos com a gente.</p>
+       </section>
+       
+  <main class="card fade-in">
+  <form id="loginForm" novalidate>
+     <h2>Entrar</h2>
+      <div class="field">
+         <label for="email">Email</label>
+          <div class="input">  
+          <input id="email" name="email" type="email" placeholder="seu@exemplo.com" required> </div> <small class="error" data-for="email"></small> </div> <div class="field"> <label for="password">Senha</label> 
+          <div class="input"> <input id="password" name="password" type="password" placeholder="••••••••" minlength="6" required>
+         <button type="button" id="togglePwd" aria-label="Mostrar senha">👁️</button> </div> <small class="error" data-for="password"></small> </div> <div class="actions"> <label class="remember"><input type="checkbox" id="remember"> Lembrar-me</label> <a class="forgot" href="#">Esqueci a senha</a> </div> <button class="primary" type="submit" id="submitBtn">Entrar</button> <div class="success-message" id="successMsg">✅ Login realizado com sucesso!</div> <div class="divider">ou</div> <div class="socials"> <button type="button" class="ghost">Entrar com Google</button><button type="button" class="ghost" onclick="window.location.href='cadastro.html'">
+  Cadastrar-se
+</button> </div> </form> </main> </div> <script src="login.js"></script> </body> </html>
+
+  <script src="login.js"></script>
+</body>
+</html>
