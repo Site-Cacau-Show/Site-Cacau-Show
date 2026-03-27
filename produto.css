@@ -114,7 +114,7 @@ body {
 }
 
 .item.active .title {
-  animation: toActive 0.5s ease-in-out 1;
+  animation: toActive 0.5s ease-in-out;
 }
 
 @keyframes float {
@@ -131,7 +131,7 @@ body {
   }
 }
 
-header {
+/* header {
   width: 100%;
   position: fixed;
   top: 0;
@@ -250,6 +250,86 @@ a {
 img {
   max-width: 100%;
   height: auto;
+} */
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    height: 100px; 
+    transition: all .50s ease;
+    background: rgb(24, 24, 24)
+  }
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+#logo {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.navbar li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar a {
+    color: #ffffff;
+    margin-left: 35px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+    transition: all .3s ease;
+    white-space: nowrap; 
+}
+
+.navbar a:hover {
+    color: #ff9100;
+}
+
+header.sticky {
+    height: 80px;
+    padding: 0 8%;
+}
+
+#menu-icon {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.full-width-image {
+    width: 100%;
+    margin-top: 0; 
+
+.full-width-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -265,6 +345,7 @@ img {
   align-items: center;
   gap: 20px;
   padding: 2rem 0;
+  scrollbar-width: none;
 }
 
 .logoProduto {
@@ -278,8 +359,10 @@ img {
   border-radius: 1rem;
   padding: 4rem 2rem 0;
   color: var(--white-color);
-  overflow-y: hidden;
+  /* overflow-y: hidden;  */
   flex: 0 0 auto;
+  transition: transform 0.3s ease;
+  position: relative; 
 }
 
 .card__img {
@@ -338,7 +421,8 @@ img {
 }
 
 .card:hover .card__img {
-  transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+ transform: translate(-1.5rem, -9.5rem) rotate(-20deg);
+ z-index: 10;
 }
 
 .card:hover .card__data {
@@ -512,6 +596,7 @@ button:hover {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
 .product-container::-webkit-scrollbar {
@@ -523,6 +608,7 @@ button:hover {
   width: 250px;
   height: 450px;
   margin-right: 40px;
+  transition: transform 0.3s ease;
 }
 
 .product-image {
@@ -768,6 +854,7 @@ button:hover {
 .logoProduto {
   margin: 40px 0;
   max-width: 200px;
+  
 }
 
 /* fim! */
@@ -1125,4 +1212,4 @@ button:hover {
   #menu-icon {
     display: block;
   }
-}
+}}

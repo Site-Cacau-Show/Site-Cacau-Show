@@ -58,14 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ------------------ ANIMAÇÃO HOVER PRODUTOS ------------------ */
-  const produtos = document.querySelectorAll('.product-card');
+  const produtos = document.querySelectorAll('.product-card, .card');
   produtos.forEach(produto => {
     produto.addEventListener('mouseenter', () => {
       produto.style.transform = 'scale(1.05)';
-      produto.style.transition = '0.3s';
+      produto.style.zIndex = '10';
     });
     produto.addEventListener('mouseleave', () => {
       produto.style.transform = 'scale(1)';
+      produto.style.zIndex = '';
     });
   });
 
