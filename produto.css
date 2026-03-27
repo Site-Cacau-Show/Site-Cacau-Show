@@ -325,6 +325,7 @@ header.sticky {
 .full-width-image {
     width: 100%;
     margin-top: 0; 
+}
 
 .full-width-image img {
     width: 100%;
@@ -1212,4 +1213,4 @@ button:hover {
   #menu-icon {
     display: block;
   }
-}}
+}
