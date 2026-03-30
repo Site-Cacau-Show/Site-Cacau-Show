@@ -64,20 +64,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Teste de Banco De Dados
-async function cadastrar() {
-  const email = document.getElementById("email").value
-  const senha = document.getElementById("senha").value
+// // Teste de Banco De Dados
+// async function cadastrar() {
+//   const email = document.getElementById("email").value
+//   const senha = document.getElementById("senha").value
 
-  const { data, error } = await supabaseClient.auth.signUp({
-    email: email,
-    password: senha
-  })
+//   const { data, error } = await supabaseClient.auth.signUp({
+//     email: email,
+//     password: senha
+//   })
 
-  if (error) {
-    alert("Erro: " + error.message)
-    return
-  }
+//   if (error) {
+//     alert("Erro: " + error.message)
+//     return
+//   }
 
-  alert("Cadastro realizado!")
-}
+//   alert("Cadastro realizado!")
+// }

@@ -81,21 +81,21 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Teste de Banco de Dados
-async function login() {
-  const email = document.getElementById("email").value
-  const senha = document.getElementById("senha").value
+// // Teste de Banco de Dados
+// async function login() {
+//   const email = document.getElementById("email").value
+//   const senha = document.getElementById("senha").value
 
-  const { data, error } = await supabaseClient.auth.signInWithPassword({
-    email: email,
-    password: senha
-  })
+//   const { data, error } = await supabaseClient.auth.signInWithPassword({
+//     email: email,
+//     password: senha
+//   })
 
-  if (error) {
-    alert("Erro: " + error.message)
-    return
-  }
+//   if (error) {
+//     alert("Erro: " + error.message)
+//     return
+//   }
 
-  alert("Login realizado!")
-  window.location.href = "home.html"
-}
+//   alert("Login realizado!")
+//   window.location.href = "home.html"
+// }

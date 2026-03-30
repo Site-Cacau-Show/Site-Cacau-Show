@@ -175,14 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Teste de Banco de Dados
-async function verificarUsuario() {
-  const { data: { user } } = await supabaseClient.auth.getUser()
+// // Teste de Banco de Dados
+// async function verificarUsuario() {
+//   const { data: { user } } = await supabaseClient.auth.getUser()
 
-  if (!user) {
-    alert("Você precisa estar logado")
-    window.location.href = "login.html"
-  }
-}
+//   if (!user) {
+//     alert("Você precisa estar logado")
+//     window.location.href = "login.html"
+//   }
+// }
 
-verificarUsuario()
+// verificarUsuario()
