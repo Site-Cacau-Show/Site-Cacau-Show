@@ -383,5 +383,30 @@ document.addEventListener("change", (e) => {
   }
 });
 
+//Teste de Banco de Dados
+async function carregarProdutos() {
+  const { data, error } = await supabaseClient
+    .from('produtos')
+    .select('*')
+
+  if (error) {
+    console.error(error)
+    return
+  }
+
+  const container = document.getElementById("lista-produtos")
+
+  data.forEach(produto => {
+    const div = document.createElement("div")
+    div.innerHTML = `
+      <h3>${produto.nome}</h3>
+      <p>R$ ${produto.preco}</p>
+    `
+    container.appendChild(div)
+  })
+}
+
+carregarProdutos()
+
 
 

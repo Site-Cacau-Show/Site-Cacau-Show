@@ -39,3 +39,20 @@ function fecharBanner(id) {
         setTimeout(() => banner.remove(), 250);
     }
 }
+
+// Teste de Banco de Dados
+async function enviarMensagem() {
+  const nome = document.getElementById("nome").value
+  const mensagem = document.getElementById("mensagem").value
+
+  const { error } = await supabaseClient
+    .from('contato')
+    .insert([{ nome, mensagem }])
+
+  if (error) {
+    alert("Erro ao enviar")
+    return
+  }
+
+  alert("Mensagem enviada!")
+}

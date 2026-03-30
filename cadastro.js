@@ -63,3 +63,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // se quiser dar feedback, deixe o php redirecionar ou retornar mensagem
   });
 });
+
+// Teste de Banco De Dados
+async function cadastrar() {
+  const email = document.getElementById("email").value
+  const senha = document.getElementById("senha").value
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: senha
+  })
+
+  if (error) {
+    alert("Erro: " + error.message)
+    return
+  }
+
+  alert("Cadastro realizado!")
+}

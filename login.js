@@ -80,3 +80,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   });
 });
+
+// Teste de Banco de Dados
+async function login() {
+  const email = document.getElementById("email").value
+  const senha = document.getElementById("senha").value
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: email,
+    password: senha
+  })
+
+  if (error) {
+    alert("Erro: " + error.message)
+    return
+  }
+
+  alert("Login realizado!")
+  window.location.href = "home.html"
+}
