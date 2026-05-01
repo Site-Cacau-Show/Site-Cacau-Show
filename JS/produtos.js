@@ -223,9 +223,9 @@ if (cepInput) {
       btn.dataset.carrinhoIniciado='1';
       btn.addEventListener('click',(e)=>{
         try{e.preventDefault();}catch(err){}
-        const card=e.target.closest('.product-card,.card,.card__data,.product-card')||e.target.closest('div');
+        const card = e.target.closest('.product-card, .card');
         if(!card){ mostrarMensagem('Não foi possível identificar o produto.'); return; }
-        const nomeEl=card.querySelector('.product-brand,.card__title,h2,.card__title');
+        const nomeEl = card.querySelector('.product-info h3, .product-brand, .card__title, h2, h3');
         const nome=nomeEl?nomeEl.textContent.trim():(card.getAttribute('data-nome')||'Produto');
         const precoEl=card.querySelector('.price,.card__preci,.actual-price,span.price,.preco');
         let preco=precoEl?parsePreco(precoEl.textContent):0;
@@ -383,30 +383,83 @@ document.addEventListener("change", (e) => {
   }
 });
 
-//Teste de Banco de Dados
-async function carregarProdutos() {
-  const { data, error } = await supabaseClient
-    .from('produtos')
-    .select('*')
+// CARROSSEL ESPAÇO CAFÉ
+document.addEventListener("DOMContentLoaded", () => {
+    const containerCafe = document.querySelector(".espaco-cafe .product-container");
+    const btnEsquerda = document.querySelector(".seta-esquerda");
+    const btnDireita = document.querySelector(".seta-direita");
+    const bolinhas = document.querySelectorAll(".bolinhas span");
 
-  if (error) {
-    console.error(error)
-    return
-  }
+    if (!containerCafe || !btnEsquerda || !btnDireita) {
+        console.log("Carrossel do Espaço Café não encontrado.");
+        return;
+    }
 
-  const container = document.getElementById("lista-produtos")
+    let indiceAtual = 0;
 
-  data.forEach(produto => {
-    const div = document.createElement("div")
-    div.innerHTML = `
-      <h3>${produto.nome}</h3>
-      <p>R$ ${produto.preco}</p>
-    `
-    container.appendChild(div)
-  })
-}
+    function larguraCard() {
+        const card = containerCafe.querySelector(".product-card");
+        return card.offsetWidth + 30;
+    }
 
-carregarProdutos()
+    function atualizarBolinhas() {
+        bolinhas.forEach((bolinha, index) => {
+            bolinha.classList.toggle("ativo", index === indiceAtual);
+        });
+    }
 
+    btnDireita.addEventListener("click", () => {
+        const totalCards = containerCafe.querySelectorAll(".product-card").length;
 
+        indiceAtual++;
 
+        if (indiceAtual >= totalCards) {
+            indiceAtual = 0;
+            containerCafe.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+        } else {
+            containerCafe.scrollBy({
+                left: larguraCard(),
+                behavior: "smooth"
+            });
+        }
+
+        atualizarBolinhas();
+    });
+
+    btnEsquerda.addEventListener("click", () => {
+        const totalCards = containerCafe.querySelectorAll(".product-card").length;
+
+        indiceAtual--;
+
+        if (indiceAtual < 0) {
+            indiceAtual = totalCards - 1;
+            containerCafe.scrollTo({
+                left: containerCafe.scrollWidth,
+                behavior: "smooth"
+            });
+        } else {
+            containerCafe.scrollBy({
+                left: -larguraCard(),
+                behavior: "smooth"
+            });
+        }
+
+        atualizarBolinhas();
+    });
+
+    bolinhas.forEach((bolinha, index) => {
+        bolinha.addEventListener("click", () => {
+            indiceAtual = index;
+
+            containerCafe.scrollTo({
+                left: larguraCard() * index,
+                behavior: "smooth"
+            });
+
+            atualizarBolinhas();
+        });
+    });
+});

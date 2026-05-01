@@ -1,187 +1,276 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 :root {
-  --first-color: #d4c5b6 ;
-  --white-color: #eaece9;
-  --dark-color:#3D2314;
-  --dark-color-lighten:#ffffff;
-  --body-font: 'Poppins', sans-serif;
-  --h2-font: 'sweet font';
-  --h1-font-size: 1.5rem;
-  --h2-font-size: 1.25rem;
-  --normal-font-size: 1rem;
-  --small-font-size: .875rem;
+  --fundo: #202020;
+  --marrom: #3D2314;
+  --marrom-claro: #8b5e3c;
+  --creme: #f3e6dc;
+  --texto: #d8c5b7;
+  --laranja: #ff9100;
 }
 
-.contato-container{
-    max-width: 650px;
-    margin: 120px auto;
-    background:  #3D2314;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
-.contato-container h1{
-    font-size: 2rem;
-    color:  #d4c5b6 ;
-    margin-bottom: 10px;
-    font-family: var(--body-font);
+body {
+  background:
+    radial-gradient(circle at top, rgba(139, 94, 60, 0.28), transparent 35%),
+    linear-gradient(180deg, #202020, #24140d) !important;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-.contato-container p{
-    color: #bcbaba;
-    margin-bottom: 25px;
-    font-family: var(--body-font);
+.contato-container {
+  position: relative;
+  max-width: 780px;
+  margin: 150px auto 90px;
+  padding: 50px;
+  text-align: center;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
 }
 
-.contato-form{
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+.contato-container::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  top: -80px;
+  right: -80px;
+  background: rgba(139, 94, 60, 0.4);
+  filter: blur(50px);
+  border-radius: 50%;
 }
 
-.campo{
-    text-align: left;
-    display: flex;
-    flex-direction: column;
+.contato-container::after {
+  content: "🍫";
+  position: absolute;
+  right: 30px;
+  bottom: 25px;
+  font-size: 3.2rem;
+  opacity: 0.13;
 }
 
-.campo label{
-    font-weight: 600;
-    margin-bottom: 5px;
-    color: #d4c5b6;
+.contato-container h1 {
+  position: relative;
+  font-size: 2.8rem;
+  color: var(--creme);
+  margin-bottom: 12px;
+}
+
+.contato-container h1::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 4px;
+  background: var(--marrom-claro);
+  border-radius: 20px;
+  margin: 14px auto 0;
+}
+
+.contato-container p {
+  position: relative;
+  color: var(--texto);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.contato-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.campo label {
+  color: var(--creme);
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .campo input,
-.campo textarea{
-    padding: 12px;
-    border: 1px solid #c5b8ac;
-    border-radius: 6px;
-    font-size: 15px;
+.campo textarea {
+  padding: 15px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--creme);
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s ease;
 }
 
-.checkbox{
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
+.campo input:focus,
+.campo textarea:focus {
+  border-color: var(--marrom-claro);
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 0 0 4px rgba(139, 94, 60, 0.2);
 }
 
-.btn-enviar{
-    background: #673d2c;
-    color: #fff;
-    padding: 14px;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: .3s;
-    font-family: var(--body-font);
+.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-.btn-enviar:hover{
-    background: #955c43;
+.checkbox label {
+  color: var(--texto);
 }
 
-.msg-sucesso{
-    display: none;
-    padding: 25px;
-    background: #e9f7e6;
-    border: 2px solid #3d7e36;
-    color: #2d5f27;
-    font-size: 18px;
-    border-radius: 8px;
-    margin-top: 20px;
+.checkbox input {
+  width: 18px;
+  height: 18px;
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2rem 9%;
-    background: #202020;
-    border-top: .3rem solid #ffffffab;
-    font-size: 100%;
-    overflow-x: hidden;
+.btn-enviar {
+  margin-top: 8px;
+  padding: 15px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #5a3424, #8b5e3c);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
-.footer-text p{
-    font-size: 1.6rem;
-    color: #eee;
-    font-size: 100%;
+.btn-enviar:hover {
+  background: linear-gradient(135deg, #8b5e3c, #b8875d);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(139, 94, 60, 0.6);
 }
 
-.footer-iconTop a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: .8rem;
-    background: #ff9100;
-    border-radius: .8rem;
-    transition: .5s ease;
-}
-
-.footer-iconTop a:hover {
-    transform: translatey(-8px);
-}
-
-.footer-iconTop a i {
-    font-size: 2.4rem;
-    color: #f7f7ff;
+.msg-sucesso {
+  display: none;
+  padding: 22px;
+  background: #e9f7e6;
+  border: 2px solid #3d7e36;
+  color: #2d5f27;
+  font-size: 17px;
+  border-radius: 16px;
+  margin-top: 22px;
 }
 
 .ad-banner {
-    position: fixed;
-    top: 120px; 
-    width: 160px;
-    height: 600px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    padding: 6px;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ad-banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
+  position: fixed;
+  top: 140px;
+  width: 160px;
+  height: 580px;
+  padding: 7px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, #2b160f, #4b2b1b);
+  border: 1px solid rgba(243, 230, 220, 0.18);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(139, 94, 60, 0.18);
+  overflow: hidden;
+  z-index: 900;
+  animation: propagandaFlutuar 4s ease-in-out infinite;
 }
 
 .ad-left {
-    left: 15px;
+  left: 18px;
 }
 
 .ad-right {
-    right: 15px;
+  right: 18px;
+}
+
+.ad-banner::before {
+  content: "Oferta";
+  position: absolute;
+  top: 14px;
+  left: -34px;
+  width: 120px;
+  text-align: center;
+  background: var(--laranja);
+  color: #202020;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transform: rotate(-35deg);
+  z-index: 3;
+  padding: 4px 0;
+}
+
+.ad-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 17px;
+  transition: 0.35s ease;
+}
+
+.ad-banner:hover img {
+  transform: scale(1.04);
 }
 
 .ad-close {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.65);
-    color: white;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    transition: .2s;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+  transition: 0.25s ease;
 }
+
 .ad-close:hover {
-    background: rgba(0,0,0,0.85);
-    transform: scale(1.1);
+  background: var(--laranja);
+  color: #202020;
+  transform: scale(1.1);
+}
+
+@keyframes propagandaFlutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @media (max-width: 1200px) {
-    .ad-banner {
-        display: none;
-    }
+  .ad-banner {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .contato-container {
+    margin: 130px 5% 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contato-container {
+    padding: 32px 22px;
+  }
+
+  .contato-container h1 {
+    font-size: 2.2rem;
+  }
 }
