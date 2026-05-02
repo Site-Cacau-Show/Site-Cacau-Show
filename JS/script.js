@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('mensagem', mensagem);
             if (avatarFile) formData.append('avatar', avatarFile);
 
-    fetch("http://127.0.0.1:8000/api/feedbacks/", {
+      fetch("http://127.0.0.1:8000/api/feedbacks/", {
         method: "POST",
         body: formData
     })
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(err);
         alert("Erro ao enviar feedback");
     });
+
 
         });
     }
