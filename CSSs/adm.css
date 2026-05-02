@@ -1,0 +1,222 @@
+:root {
+    --chocolate-dark: #2D1B10;
+    --chocolate-light: #3C2415;
+    --gold: #C09552;
+    --vanilla: #F8F3ED;
+    --white: #FFFFFF;
+    --text-main: #3C2415;
+    --text-muted: #8E7B6D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(rgba(45, 27, 16, 0.7), rgba(218, 160, 124, 0.7)), 
+                url('../Imgs/chocolateadm.jpg'); 
+    
+    background-size: cover;
+    background-position: center;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    gap: 20px;
+}
+
+.sidebar {
+    background-color: #98B99E;
+    width: 90px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    flex-shrink: 0;
+}
+
+.admin-logo {
+    width: 50px;
+    height: auto;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.nav-link {
+    color: #400F0B;
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.avatar {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    -ms-overflow-style: none; /* IE e Edge */
+    scrollbar-width: none;    /* Firefox */
+}
+
+.main-content::-webkit-scrollbar {
+    display: none; /* Chrome e Safari */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-report {
+    background-color: #98B99E;
+    color: #400F0B;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* DASHBOARD GRID */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #F2E3B3;
+    border-radius: 30px;
+    padding: 25px;
+    color: #2D1B10;
+    box-shadow: 0 10px 25px rgba(60, 36, 21, 0.08);
+}
+
+/* CARD VENDAS */
+.card-vendas-mes {
+    grid-column: span 2;
+    background: #F2E3B3;
+    color: #2D1B10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-vendas-mes h3 { color: var(--gold); }
+.value { font-size: 2.5rem; font-weight: 800; display: block; margin: 10px 0; }
+
+.chart-mini {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 100px;
+}
+
+.chart-mini .bar {
+    width: 15px;
+    background-color: var(--gold);
+    border-radius: 5px;
+}
+
+/* SISTEMA DE BOLHAS (FREQUÊNCIA) */
+.card-bubbles {
+    display: flex;
+    flex-direction: column;
+}
+
+.bubbles-container {
+    position: relative;
+    height: 180px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bubble {
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.bubble-gold {
+    width: 120px; height: 120px;
+    background: #8C7A45;
+    right: 15%; z-index: 2;
+}
+
+.bubble-chocolate {
+    width: 90px; height: 90px;
+    background: #A685A0;
+    color: white; left: 15%; top: 5%; z-index: 3;
+}
+
+.bubble-cream {
+    width: 75px; height: 75px;
+    background: rgba(248, 243, 237, 0.9);
+    bottom: 10%; left: 30%; z-index: 1;
+    border: 1px solid rgba(192, 149, 82, 0.2);
+}
+
+.bubble-value { font-weight: 800; font-size: 1.1rem; }
+.bubble-label { font-size: 0.65rem; text-transform: uppercase; }
+
+.bubbles-legend { display: flex; flex-direction: column; gap: 6px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; }
+.dot { width: 20px; height: 8px; border-radius: 4px; }
+.dot.gold { background: #A685A0; }
+.dot.chocolate { background: #8C7A45; }
+.dot.cream { background: var(--vanilla); border: 1px solid var(--gold); }
+
+/* USUÁRIOS E TABELA */
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.user-initials {
+    width: 40px; height: 40px;
+    background-color: var(--vanilla);
+    color: var(--chocolate-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.card-weekly { grid-column: span 3; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th { text-align: left; color: var(--text-muted); font-size: 0.8rem; padding-bottom: 10px; }
+td { padding: 10px 0; border-top: 1px solid #F8F3ED; }

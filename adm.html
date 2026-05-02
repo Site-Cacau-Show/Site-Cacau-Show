@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADM - Cacau Show</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="CSSs/adm.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="Imgs/logo_cacau_show.svg" alt="Cacau Show Logo" class="admin-logo">
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active"><i class="ph ph-house"></i></a>
+                <a href="#" class="nav-link"><i class="ph ph-chart-line-up"></i></a>
+                <a href="#" class="nav-link"><i class="ph ph-package"></i></a>
+                <a href="#" class="nav-link"><i class="ph ph-users-three"></i></a>
+                <a href="#" class="nav-link"><i class="ph ph-gear"></i></a>
+            </div>
+            <div class="admin-profile">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Admin" class="avatar">
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="welcome">
+                    <h1>Bem-Vindo, Admin!</h1>
+                    <p>Aqui está o resumo da Cacau-Show para hoje.</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-report">Lançar Relatório <i class="ph ph-plus"></i></button>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <section class="card card-vendas-mes">
+                    <div class="card-info">
+                        <h3>Vendas do Mês</h3>
+                        <span class="value">R$ 10.000,00</span>
+                        <p class="growth"><i class="ph ph-trend-up"></i> + 10% que o mês anterior</p>
+                    </div>
+                    <div class="chart-mini">
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 50%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                    </div>
+                </section>
+
+                <section class="card card-bubbles">
+                    <div class="bubbles-header">
+                        <h3>Mais Vendidos</h3>
+                    </div>
+                    
+                    <div class="bubbles-container">
+                        <div class="bubble bubble-gold">
+                            <span class="bubble-value">850</span>
+                            <span class="bubble-label">Trufas</span>
+                        </div>
+                        <div class="bubble bubble-chocolate">
+                            <span class="bubble-value">420</span>
+                            <span class="bubble-label">Tabletes</span>
+                        </div>
+                        <div class="bubble bubble-cream">
+                            <span class="bubble-value">150</span>
+                            <span class="bubble-label">Kits</span>
+                        </div>
+                    </div>
+
+                    <div class="bubbles-legend">
+                        <div class="legend-item"><span class="dot gold"></span> Trufas</div>
+                        <div class="legend-item"><span class="dot chocolate"></span> Tabletes</div>
+                        <div class="legend-item"><span class="dot cream"></span> Presentes</div>
+                    </div>
+                </section>
+
+                <section class="card card-users">
+                    <h3>Últimos Cadastros</h3>
+                    <div class="user-list">
+                        <div class="user-card">
+                            <div class="user-initials">AS</div>
+                            <div class="user-detail">
+                                <strong>Ana Silva</strong>
+                                <span>há 10 min</span>
+                            </div>
+                        </div>
+                        <div class="user-card">
+                            <div class="user-initials">RC</div>
+                            <div class="user-detail">
+                                <strong>Ricardo Costa</strong>
+                                <span>há 1 hora</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card card-weekly">
+                    <h3>Relatório da Semana</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Pedidos</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Segunda</td>
+                                <td>14</td>
+                                <td>R$ 420,00</td>
+                            </tr>
+                            <tr>
+                                <td>Terça</td>
+                                <td>22</td>
+                                <td>R$ 890,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
