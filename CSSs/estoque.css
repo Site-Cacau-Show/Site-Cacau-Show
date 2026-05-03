@@ -1,0 +1,140 @@
+:root {
+    --bg-light: #F9F4F0;
+    --sidebar-bg: #EFE6DD;
+    --text-dark: #4A3728;
+    --text-muted: #B5A496;
+    --accent-caramel: #D4A373;
+    --accent-latte: #A68A71;
+    --white: #FFFFFF;
+    --card-shadow: 0 4px 20px rgba(74, 55, 40, 0.05);
+    --positive: #8CAB8E;
+    --alert: #D68C8C;
+}
+
+.inventory-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.inventory-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px !important;
+}
+
+.stat-item i {
+    font-size: 32px;
+    color: var(--accent-caramel);
+    background: var(--bg-light);
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.stat-item.alert i {
+    color: var(--alert);
+    background: #FFF0F0;
+}
+
+.stat-item div span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stat-item div strong {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inventory-table th {
+    padding: 15px 10px;
+    border-bottom: 2px solid var(--bg-light);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.inventory-table td {
+    padding: 20px 10px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--bg-light);
+}
+
+.product-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-cell img {
+    border-radius: 10px;
+}
+
+.stock-tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.stock-tag.high {
+    background: #F0F4F0;
+    color: var(--positive);
+}
+
+.stock-tag.low {
+    background: #FFF9F0;
+    color: var(--accent-caramel);
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.btn-icon:hover {
+    color: var(--accent-caramel);
+}
+
+.btn-primary {
+    background-color: var(--accent-caramel);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-latte);
+    transform: translateY(-2px);
+}
+
+.inventory-search {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
