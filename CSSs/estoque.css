@@ -1,14 +1,14 @@
 :root {
-    --bg-light: #F9F4F0;
-    --sidebar-bg: #EFE6DD;
-    --text-dark: #4A3728;
-    --text-muted: #B5A496;
-    --accent-caramel: #D4A373;
-    --accent-latte: #A68A71;
-    --white: #FFFFFF;
-    --card-shadow: 0 4px 20px rgba(74, 55, 40, 0.05);
-    --positive: #8CAB8E;
-    --alert: #D68C8C;
+    --bg-light: #FDFBFA;           /* Off-white quente */
+    --sidebar-bg: #2D1B14;         /* Chocolate Amargo Profundo */
+    --text-dark: #3C2A21;          /* Cacau Escuro */
+    --text-muted: #85736B;         /* Taupe/Mocha suave */
+    --accent-caramel: #A0522D;     /* Caramelo Tostado (Destaques) */
+    --accent-latte: #D7CCC8;       /* Café com Leite (Divisores/Bordas) */
+    --white: #FFFFFF;              /* Cards brancos */
+    --card-shadow: 0 4px 20px rgba(60, 42, 33, 0.08);
+    --positive: #6D8B74;           /* Verde sálvia */
+    --alert: #D68C8C;              /* Vermelho pastel (mantido para erro) */
 }
 
 .inventory-grid {
@@ -92,12 +92,12 @@
 }
 
 .stock-tag.high {
-    background: #F0F4F0;
+    background: #E8F0E9;
     color: var(--positive);
 }
 
 .stock-tag.low {
-    background: #FFF9F0;
+    background: #FDF5F0;
     color: var(--accent-caramel);
 }
 
@@ -129,7 +129,7 @@
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-latte);
+    background-color: #8B4513; /* Chocolate um tom mais escuro no hover */
     transform: translateY(-2px);
 }
 
