@@ -59,27 +59,49 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Obtém valores do formulário
+    const email = form.querySelector('input[type="email"]').value;
+    const senha = form.querySelector('input[type="password"]').value;
+
     // Mostra estado de "carregando"
     if (submitBtn) submitBtn.classList.add("loading");
     if (successMsg) successMsg.style.display = "none";
 
     // Simula processamento (ex: requisição ao servidor)
     setTimeout(function () {
-      localStorage.setItem("logado", "true");
-      if (submitBtn) submitBtn.classList.remove("loading");
+      // Verifica se são credenciais de admin
+      if (email === "adm@gmail.com" && senha === "12345") {
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("tipo", "admin");
+        if (submitBtn) submitBtn.classList.remove("loading");
 
-      // Exibe mensagem de sucesso
-      if (successMsg) {
-        successMsg.style.display = "block";
+        // Exibe mensagem de sucesso
+        if (successMsg) {
+          successMsg.style.display = "block";
+        }
+
+        setTimeout(function () {
+          window.location.href = "adm.html";
+        }, 1000);
+      } else {
+        // Login de usuário comum
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("tipo", "usuario");
+        if (submitBtn) submitBtn.classList.remove("loading");
+
+        // Exibe mensagem de sucesso
+        if (successMsg) {
+          successMsg.style.display = "block";
+        }
+
+        setTimeout(function () {
+          const voltar = sessionStorage.getItem("paginaAnterior") || "index.html";
+          sessionStorage.removeItem("paginaAnterior");
+          window.location.href = voltar;
+        }, 1000);
       }
-
-      setTimeout(function () {
-        const voltar = sessionStorage.getItem("paginaAnterior") || "index.html";
-        sessionStorage.removeItem("paginaAnterior");
-        window.location.href = voltar;
-      }, 1000);
     }, 1500);
-  });
+  });;
 });
 
 function fazerLogin() {

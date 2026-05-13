@@ -72,6 +72,7 @@
                                 <th>Preço</th>
                                 <th>Quantidade</th>
                                 <th>Status</th>
+                                <th>Funcionário</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -79,28 +80,124 @@
                             <tr>
                                 <td class="product-cell">
                                     <img src="https://placehold.co/40x40/3C2415/FFF?text=L" alt="">
-                                    <strong>LaCreme ao Leite 100g</strong>
+                                    <div>
+                                        <strong>LaCreme ao Leite 100g</strong>
+                                        <span>Tabletes</span>
+                                    </div>
                                 </td>
                                 <td>Tabletes</td>
                                 <td>R$ 15,90</td>
                                 <td>450 un</td>
                                 <td><span class="stock-tag high">Em dia</span></td>
+                                <td>Maria</td>
                                 <td><button class="btn-icon"><i class="ph ph-dots-three-outline"></i></button></td>
                             </tr>
                             <tr>
                                 <td class="product-cell">
                                     <img src="https://placehold.co/40x40/C09552/FFF?text=T" alt="">
-                                    <strong>Trufa Artesanal Maracujá</strong>
+                                    <div>
+                                        <strong>Trufa Artesanal Maracujá</strong>
+                                        <span>Trufas</span>
+                                    </div>
                                 </td>
                                 <td>Trufas</td>
                                 <td>R$ 4,50</td>
                                 <td>15 un</td>
                                 <td><span class="stock-tag low">Crítico</span></td>
+                                <td>Pedro</td>
                                 <td><button class="btn-icon"><i class="ph ph-dots-three-outline"></i></button></td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
+
+                <div class="dashboard-bottom-grid">
+                    <section class="card orders-card">
+                        <div class="card-header">
+                            <div>
+                                <h3>Planilha de Vendas</h3>
+                                <span class="label">Controle do que foi vendido, cancelado e quem comprou.</span>
+                            </div>
+                            <button class="btn-outline">Exportar</button>
+                        </div>
+
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Venda</th>
+                                    <th>Cliente</th>
+                                    <th>Itens</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#00124</td>
+                                    <td>Ana Silva</td>
+                                    <td>2x Trufa, 1x Tablete</td>
+                                    <td><span class="badge sold">Concluído</span></td>
+                                    <td>R$ 42,30</td>
+                                    <td class="table-actions"><button class="btn-cancel">Cancelar</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#00125</td>
+                                    <td>João Lima</td>
+                                    <td>1x LaCreme 100g</td>
+                                    <td><span class="badge pending">Pendente</span></td>
+                                    <td>R$ 15,90</td>
+                                    <td class="table-actions"><button class="btn-cancel">Cancelar</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#00126</td>
+                                    <td>Renata Costa</td>
+                                    <td>3x Bombons</td>
+                                    <td><span class="badge canceled">Cancelado</span></td>
+                                    <td>R$ 27,00</td>
+                                    <td class="table-actions"><button class="btn-cancel">Reativar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="card employees-card">
+                        <div class="card-header">
+                            <h3>Registro de Funcionários</h3>
+                        </div>
+
+                        <table class="employees-table">
+                            <thead>
+                                <tr>
+                                    <th>Funcionário</th>
+                                    <th>Item Adicionado</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Maria</td>
+                                    <td>LaCreme ao Leite 100g</td>
+                                    <td>12/05/2026</td>
+                                    <td><span class="badge added">Adicionado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Pedro</td>
+                                    <td>Trufa Artesanal Maracujá</td>
+                                    <td>11/05/2026</td>
+                                    <td><span class="badge added">Adicionado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Camila</td>
+                                    <td>Kits Presente</td>
+                                    <td>10/05/2026</td>
+                                    <td><span class="badge added">Adicionado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
             </div>
         </main>
     </div>
