@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const togglePwd = document.getElementById("togglePwd");
   const pwd = document.getElementById("password");
 
+  
   // --- Controle do botão Entrar / Sair ---
   if (loginBtn) {
     function setLoggedState() {
@@ -58,44 +59,78 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    // Obtém valores do formulário
+    const email = form.querySelector('input[type="email"]').value;
+    const senha = form.querySelector('input[type="password"]').value;
+
     // Mostra estado de "carregando"
     if (submitBtn) submitBtn.classList.add("loading");
     if (successMsg) successMsg.style.display = "none";
 
     // Simula processamento (ex: requisição ao servidor)
     setTimeout(function () {
-      localStorage.setItem("logado", "true");
-      if (submitBtn) submitBtn.classList.remove("loading");
+      // Verifica se são credenciais de admin
+      if (email === "adm@gmail.com" && senha === "12345") {
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("tipo", "admin");
+        if (submitBtn) submitBtn.classList.remove("loading");
 
-      // Exibe mensagem de sucesso
-      if (successMsg) {
-        successMsg.style.display = "block";
+        // Exibe mensagem de sucesso
+        if (successMsg) {
+          successMsg.style.display = "block";
+        }
+
+        setTimeout(function () {
+          window.location.href = "adm.html";
+        }, 1000);
+      } else {
+        // Login de usuário comum
+        localStorage.setItem("logado", "true");
+        localStorage.setItem("tipo", "usuario");
+        if (submitBtn) submitBtn.classList.remove("loading");
+
+        // Exibe mensagem de sucesso
+        if (successMsg) {
+          successMsg.style.display = "block";
+        }
+
+        setTimeout(function () {
+          const voltar = sessionStorage.getItem("paginaAnterior") || "index.html";
+          sessionStorage.removeItem("paginaAnterior");
+          window.location.href = voltar;
+        }, 1000);
       }
-
-      setTimeout(function () {
-        const voltar = sessionStorage.getItem("paginaAnterior") || "index.html";
-        sessionStorage.removeItem("paginaAnterior");
-        window.location.href = voltar;
-      }, 1000);
     }, 1500);
-  });
+  });;
 });
 
-// // Teste de Banco de Dados
-// async function login() {
-//   const email = document.getElementById("email").value
-//   const senha = document.getElementById("senha").value
+function fazerLogin() {
+    const username = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-//   const { data, error } = await supabaseClient.auth.signInWithPassword({
-//     email: email,
-//     password: senha
-//   })
-
-//   if (error) {
-//     alert("Erro: " + error.message)
-//     return
-//   }
-
-//   alert("Login realizado!")
-//   window.location.href = "home.html"
-// }
+    fetch("http://127.0.0.1:8000/api/login/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify({
+            username,
+            password
+        })
+    })
+    .then(res => {
+        if (!res.ok) {
+            // erro do backend (400, 401 etc)
+            return res.json().then(err => { throw err; });
+        }
+        return res.json();
+    })
+    .then(data => {
+        alert("Login realizado com sucesso!");
+        window.location.href = "produtos.html";
+    })
+    .catch(err => {
+        alert("Erro: " + (err.error || "Usuário ou senha inválidos"));
+    });
+}

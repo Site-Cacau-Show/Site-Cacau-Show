@@ -2,6 +2,93 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* ------------------ LOGIN ------------------ */
+
+/*  func gu */
+const API_PRODUTOS = "http://127.0.0.1:8000/api/produtos/";
+const API_CARRINHO = "http://127.0.0.1:8000/api/carrinho-itens/";
+
+function carregarProdutos() {
+    fetch(API_PRODUTOS)
+        .then(res => res.json())
+        .then(produtos => {
+            const container = document.getElementById("lista-produtos");
+            container.innerHTML = "";
+
+            produtos.forEach(produto => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+                    <img src="${produto.imagem_url}" class="card__img">
+                    <div class="card__data">
+                        <h1 class="card__title">${produto.nome}</h1>
+                        <span class="card__preci">R$ ${produto.preco}</span>
+                        <p class="card__description">${produto.descricao}</p>
+                        <button class="card__button" onclick="adicionarCarrinho(${produto.id})">
+                            Comprar
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        });
+}
+/* termina gu*/
+
+/*funcao gu 2*/
+function adicionarCarrinho(produtoId) {
+    fetch(API_CARRINHO, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            carrinho: 1, // precisa existir no banco
+            produto_id: produtoId,
+            quantidade: 1
+        })
+    })
+    .then(res => res.json())
+    .then(() => {
+        alert("Produto adicionado ao carrinho!");
+        carregarCarrinho();
+    });
+}
+/* termina gu 2*/
+
+/*funcao gu 3*/
+function carregarCarrinho() {
+    fetch("http://127.0.0.1:8000/api/carrinho/1/")
+        .then(res => res.json())
+        .then(carrinho => {
+            const div = document.getElementById("itensCarrinho");
+            const totalDiv = document.getElementById("totalCarrinho");
+
+            div.innerHTML = "";
+            let total = 0;
+
+            carrinho.itens.forEach(item => {
+                total += item.quantidade * item.produto.preco;
+
+                div.innerHTML += `
+                    <p>
+                        ${item.produto.nome} 
+                        x${item.quantidade} 
+                        - R$ ${item.produto.preco}
+                    </p>
+                `;
+            });
+
+            totalDiv.innerText = "Total: R$ " + total.toFixed(2);
+        });
+}
+window.onload = () => {
+    carregarProdutos();
+    carregarCarrinho();
+};
+/* termina gu 3*/
+
   const loginBtn = document.getElementById("loginBtn");
   if (loginBtn) {
     function atualizarBotao() {

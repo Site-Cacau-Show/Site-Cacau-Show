@@ -38,26 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('mensagem', mensagem);
             if (avatarFile) formData.append('avatar', avatarFile);
 
-            fetch('salvar_feedback.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Feedback enviado com sucesso! Obrigado.');
-                    inputNome.value = '';
-                    inputMensagem.value = '';
-                    inputAvatar.value = '';
-                    avatarPreview.src = 'https://via.placeholder.com/200';
-                } else {
-                    alert('Erro ao enviar feedback: ' + data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Erro na requisição:', error);
-                alert('Ocorreu um erro de rede. Tente novamente.');
-            });
+      fetch("http://127.0.0.1:8000/api/feedbacks/", {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Feedback enviado com sucesso!");
+        console.log(data);
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Erro ao enviar feedback");
+    });
+
+
         });
     }
 

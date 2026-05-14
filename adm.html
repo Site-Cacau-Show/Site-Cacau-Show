@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Cacau Show</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="CSSs/adm.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="sidebar-top">
+                <div class="nav-menu">
+                    <!-- <a href="#" class="nav-link active"><i class="ph ph-squares-four"></i></a> -->
+                    <!-- <a href="#" class="nav-link"><i class="ph ph-shopping-cart"></i></a> -->
+                    <a href="estoque.html" class="nav-link"><i class="ph ph-package"></i></a>
+                    <!-- <a href="#" class="nav-link"><i class="ph ph-chart-pie"></i></a> -->
+                    <a href="cadastrados.html" class="nav-link"><i class="ph ph-users"></i></a>
+                </div>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-link"><i class="ph ph-gear"></i></a>
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Admin Avatar" class="avatar">
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-left">
+                    <h1>Dashboard, Cacau Show</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="ph ph-magnifying-glass"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+                    <div class="user-profile-header">
+                        <span>Olá, <strong>Admin</strong></span>
+                        <i class="ph ph-caret-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+               
+                <section class="card card-revenue">
+                    <div class="card-header">
+                        <div>
+                            <span class="label">Receita Total</span>
+                            <h2 class="value">R$ 30.254,00</h2>
+                            <span class="growth positive"><i class="ph ph-trend-up"></i> 2.14% vs última semana</span>
+                        </div>
+                        <button class="btn-outline">Ver Relatório</button>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 40%;"></div>
+                            <span class="bar-label">Seg</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 65%;"></div>
+                            <span class="bar-label">Ter</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 35%;"></div>
+                            <span class="bar-label">Qua</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 85%;"></div>
+                            <span class="bar-label">Qui</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 50%;"></div>
+                            <span class="bar-label">Sex</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 95%;"></div>
+                            <span class="bar-label">Sáb</span>
+                        </div>
+                        <div class="chart-item">
+                            <div class="chart-bar" style="height: 45%;"></div>
+                            <span class="bar-label">Dom</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card card-rating">
+                    <div class="card-header">
+                        <h3>Frequência de Saída</h3>
+                    </div>
+                    <div class="bubbles-wrapper">
+                        <div class="bubble-large">
+                            <span class="bubble-perc">85%</span>
+                            <span class="bubble-txt">Trufas</span>
+                        </div>
+                        <div class="bubble-medium">
+                            <span class="bubble-perc">92%</span>
+                            <span class="bubble-txt">Kits</span>
+                        </div>
+                        <div class="bubble-small">
+                            <span class="bubble-perc">85%</span>
+                            <span class="bubble-txt">Tabletes</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card card-most-requested">
+                    <div class="card-header">
+                        <h3>Mais Pedidos</h3>
+                    </div>
+                    <div class="product-list-minimal">
+                        <div class="product-item-min">
+                            <img src="https://placehold.co/44x44/3C2415/FFF?text=LC" alt="LaCreme">
+                            <div class="p-info">
+                                <strong>LaCreme ao Leite</strong>
+                                <span>Chocolate</span>
+                            </div>
+                            <span class="p-price">R$ 12,90</span>
+                        </div>
+                        <div class="product-item-min">
+                            <img src="https://placehold.co/44x44/C09552/FFF?text=TA" alt="Trufa">
+                            <div class="p-info">
+                                <strong>Trufa Artesanal</strong>
+                                <span>Morango</span>
+                            </div>
+                            <span class="p-price">R$ 4,50</span>
+                        </div>
+                        <div class="product-item-min">
+                            <img src="https://placehold.co/44x44/6F4E37/FFF?text=TB" alt="Tablete">
+                            <div class="p-info">
+                                <strong>Tablete Bendito Cacao</strong>
+                                <span>70% Cacau</span>
+                            </div>
+                            <span class="p-price">R$ 15,90</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card card-weekly-table">
+                    <div class="card-header">
+                        <h3>Relatório Semanal</h3>
+                        <button class="btn-outline">Ver tudo</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dia</th>
+                                <th>Pedidos</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Segunda-feira</td>
+                                <td>145</td>
+                                <td><span class="status-tag">Concluído</span></td>
+                                <td>R$ 2.400,00</td>
+                            </tr>
+                            <tr>
+                                <td>Terça-feira</td>
+                                <td>98</td>
+                                <td><span class="status-tag">Concluído</span></td>
+                                <td>R$ 1.850,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

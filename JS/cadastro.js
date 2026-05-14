@@ -64,20 +64,46 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// // Teste de Banco De Dados
-// async function cadastrar() {
-//   const email = document.getElementById("email").value
-//   const senha = document.getElementById("senha").value
+const form = document.getElementById("cadastroForm");
 
-//   const { data, error } = await supabaseClient.auth.signUp({
-//     email: email,
-//     password: senha
-//   })
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); // impede reload da página
 
-//   if (error) {
-//     alert("Erro: " + error.message)
-//     return
-//   }
+    const username = document.getElementById("email").value; // vamos usar email como username
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-//   alert("Cadastro realizado!")
-// }
+    // validação simples
+    if (password !== confirmPassword) {
+        alert("As senhas não coincidem!");
+        return;
+    }
+
+    fetch("http://127.0.0.1:8000/api/register/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.message) {
+            document.getElementById("successMsg").style.display = "block";
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+
+        } else {
+            alert("Erro: " + data.error);
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Erro ao conectar com o servidor");
+    });
+});
