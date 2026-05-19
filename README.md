@@ -272,7 +272,7 @@ pip install pillow
 ## 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/uBenetti/Site-Cacau-Show.git
+git clone https://github.com/Site-Cacau-Show/Site-Cacau-Show
 ```
 
 ## 2. Acessar a pasta do projeto
